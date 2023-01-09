@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>@ViewBag.Title</title>*@
+    @*<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="navigation">
+        <a href="@Url.Content("~/home/index")">Home</a> | <a href="@Url.Content("~/players/index")">Player Leaderboard</a> | <a href="@Url.Content("~/characters/index")">Character Leaderboard</a>
+        <hr />
+    </div>
+    <div id="body">
+        @RenderBody()
+    </div>
+    <div id="footer">
+        <hr />
+        <p>
+        James Boyd 30041547<br />
+        Cluster: MVC and Non-Relational Databases<br />
+        Portfolio of Tasks AT2
+        </p>
+    </div>
+</body>
+</html>

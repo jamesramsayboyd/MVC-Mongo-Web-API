@@ -1,0 +1,46 @@
+﻿@model ApexDataApi.Models.Player
+
+@{
+    ViewData["Title"] = "DetailsAdmin";
+}
+
+<h1>Details</h1>
+
+<div>
+    <div class="avatarlarge">
+        <img src="@Url.Content("~/Content/Images/players/" + Model.Avatar)" />
+    </div>
+    <h1>@Html.DisplayFor(model => model.PlayerName)</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rank)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rank) <p>
+        </dd>
+        <dt class="col-sm-2">
+            Most Played Character
+        </dt>
+        <dd class="col-sm-10">
+            <div class="avatarsmall">
+                <img src="@Url.Content("~/Content/Images/characters/" + Model.Character1 + ".png")" />
+            </div>
+            @Html.DisplayFor(model => model.Character1Playtime) hours <p>
+        </dd>
+        <dt class="col-sm-2">
+            2nd Most Played Character
+        </dt>
+        <dd class="col-sm-10">
+            <div class="avatarsmall">
+                <img src="@Url.Content("~/Content/Images/characters/" + Model.Character2 + ".png")" />
+            </div>
+            @Html.DisplayFor(model => model.Character2Playtime) hours <p>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="IndexAdmin">Back to List</a>
+</div>
+

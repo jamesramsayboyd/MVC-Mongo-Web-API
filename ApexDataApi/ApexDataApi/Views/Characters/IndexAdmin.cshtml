@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ApexDataApi.Models.Character>
+
+@{
+    ViewData["Title"] = "Characters";
+}
+
+<h1>Characters</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                Character Name
+            </th>
+            <th>
+                @*Playtime (hours)*@
+            </th>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="avatarsmall">
+                        <img src="@Url.Content("~/Content/Images/characters/" + @item.Image)" alt="@item.CharacterName image" />
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CharacterName)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Playtime)*@
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    @*<a asp-action="DetailsAdmin" asp-route-id="@item.Id">Details</a> |*@
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <p>
+        <a asp-controller="Home" asp-action="Index">Back to Home</a>
+    </p>
+</div>

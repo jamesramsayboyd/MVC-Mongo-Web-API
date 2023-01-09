@@ -1,0 +1,544 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApexDataApi</name>
+    </assembly>
+    <members>
+        <member name="T:ApexDataApi.AuthHandler.AuthenticationHandler">
+            <summary>
+            An Authentication function that works with the API
+            User must use username: 'admin' and password 'admin' to use API functions
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.AuthHandler.AuthenticationHandler.HandleAuthenticateAsync">
+            <summary>
+            Requires that user use the correct username and password for API functions
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:ApexDataApi.Controllers.CharactersApiController">
+            <summary>
+            A controller for character actions, used for the API
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersApiController.#ctor(ApexDataApi.Services.CharactersService)">
+            <summary>
+            Connection to the Service containing all methods
+            </summary>
+            <param name="charactersService"></param>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersApiController.GetCharacters">
+            <summary>
+            Returns a list of all characters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersApiController.GetCharactersByPlaytime">
+            <summary>
+            Returns a list of all characters sorted by playtime descending
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersApiController.PostTwo(System.String,System.String)">
+            <summary>
+            Inserts two Characters in one operation
+            </summary>
+            <param name="name1">The name of the first character to be inserted</param>
+            <param name="name2">The name of the second character to be inserted</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersApiController.Delete(System.String)">
+            <summary>
+            Deletes a specific Character by name
+            </summary>
+            <param name="name">Name of the character to delete (case-insensitive)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersApiController.Delete(System.String,System.String)">
+            <summary>
+            Deletes multiple Characters in one operation
+            </summary>
+            <param name="name1">Name of the first character to delete</param>
+            <param name="name2">Name of the second character to delete</param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Controllers.CharactersController">
+            <summary>
+            A controller for character actions, used for the Front End
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.#ctor(ApexDataApi.Services.CharactersService)">
+            <summary>
+            Connection to the Service containing all methods
+            </summary>
+            <param name="charactersService"></param>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Create">
+            <summary>
+            Returns the Create Character page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Create(ApexDataApi.Models.Character)">
+            <summary>
+            Adds the character to the database, redirects the user to index
+            </summary>
+            <param name="character">The character being created</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.IndexAdmin">
+            <summary>
+            Shows list of all characters with CRUD options for admin
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Index">
+            <summary>
+            Shows list of all characters ordered by Playtime descending, used 
+            as the character leaderboard page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Details(System.String)">
+            <summary>
+            Shows a single character's details
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Edit(System.String)">
+            <summary>
+            Returns the Edit Character page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Edit(ApexDataApi.Models.Character)">
+            <summary>
+            Updates the character's details and redirects to the index
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Delete(System.String)">
+            <summary>
+            Loads the Delete Character page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.CharactersController.Delete(ApexDataApi.Models.Character)">
+            <summary>
+            Deletes the character from the database, redirects to the index
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Controllers.PlayersApiController">
+            <summary>
+            A controller for player actions, used for the API
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.#ctor(ApexDataApi.Services.PlayersService)">
+            <summary>
+            Connection to the Service containing all methods
+            </summary>
+            <param name="playersService"></param>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.Get">
+            <summary>
+            Selects all players
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.Get(System.String)">
+            <summary>
+            Selects a single player by name
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.GetRanked">
+            <summary>
+            Sorts all players by Rank
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.Post(System.String,System.Int32,System.String)">
+            <summary>
+            Inserts a Player
+            </summary>
+            <param name="name">The player's name</param>
+            <param name="rank">The player's rank</param>
+            <param name="avatar">The filepath of the player's avatar image</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.Update(System.String,System.Int32)">
+            <summary>
+            Updates a Player's ranking
+            </summary>
+            <param name="name">The name of the player to be updated</param>
+            <param name="rank">The new rank</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersApiController.UpdateMultiple(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Updates multiple Players' Rankings in one operation
+            </summary>
+            <param name="name1">Name of the first player to update</param>
+            <param name="rank1">The new ranking</param>
+            <param name="name2">Name of the second player to update</param>
+            <param name="rank2">The new ranking</param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Controllers.PlayersController">
+            <summary>
+            A controller for player actions, used for the Front End
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.#ctor(ApexDataApi.Services.PlayersService,ApexDataApi.Services.CharactersService)">
+            <summary>
+            Connection to the Service containing all methods
+            </summary>
+            <param name="playersService"></param>
+            <param name="charactersService"></param>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Create(ApexDataApi.Models.Player)">
+            <summary>
+            Adds the player to the database, redirects the user to index
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.IndexAdmin">
+            <summary>
+            Shows list of all players with CRUD options for admin
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Index">
+            <summary>
+            Show list of all players ordered by Rank ascending, used 
+            as the player leaderboard page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Details(System.String)">
+            <summary>
+            Shows a single player's details
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.DetailsAdmin(System.String)">
+            <summary>
+            Shows a single player's details with CRUD options
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Edit(System.String)">
+            <summary>
+            Returns the Edit Player page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Edit(ApexDataApi.Models.Player)">
+            <summary>
+            Updates the player's details and redirects to the index
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Delete(System.String)">
+            <summary>
+            Loads the Delete Player page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Controllers.PlayersController.Delete(ApexDataApi.Models.Player)">
+            <summary>
+            Deletes the player from the database, redirects to the index
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Models.Character">
+            <summary>
+            A Class representing a character used in the game Apex Legends
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Models.Character.#ctor">
+            <summary>
+            A default, parameterless constructor for MVC purposes
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Models.Character.#ctor(System.String)">
+            <summary>
+            A constructor allowing only the character's name to be set
+            ID is automatically set to first four characters of character name
+            Image is set to default
+            </summary>
+            <param name="characterName"></param>
+        </member>
+        <member name="M:ApexDataApi.Models.Character.CompareTo(System.Object)">
+            <summary>
+            CompareTo function required for the IComparable interface
+            Character objects are sorted by the Playtime variable
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ApexDataApi.Models.Character.Id">
+            <summary>
+            A unique ID for each character. IDs should be manually set to be
+            the first four characters of the CharacterName
+            </summary>
+        </member>
+        <member name="P:ApexDataApi.Models.Character.CharacterName">
+            <summary>
+            The Character's name (i.e. 'Bangalore', 'Horizon')
+            </summary>
+        </member>
+        <member name="P:ApexDataApi.Models.Character.Playtime">
+            <summary>
+            A variable to contain the character's playtime. This isn't stored on 
+            the character object itself, but is dynamically calculated when needed
+            by looping through the list of all players and counting their playtime 
+            stats per character
+            </summary>
+        </member>
+        <member name="P:ApexDataApi.Models.Character.Image">
+            <summary>
+            An image representing the character
+            </summary>
+        </member>
+        <member name="T:ApexDataApi.Models.Player">
+            <summary>
+            A Class representing an Apex Legends player
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Models.Player.#ctor">
+            <summary>
+            A default, parameterless constructor for MVC purposes
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Models.Player.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            An overloaded constructor allowing PlayerName and Rank fields to be set
+            Used to insert a player with the API
+            </summary>
+            <param name="name"></param>
+            <param name="rank"></param>
+            <param name="avatar"></param>
+        </member>
+        <member name="M:ApexDataApi.Models.Player.CompareTo(System.Object)">
+            <summary>
+            The CompareTo function for the IComparable interface
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Services.AuthenticationService">
+            <summary>
+            A service defining the username/password authentication function
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Services.AuthenticationService.ValidateCredentials(System.String,System.String)">
+            <summary>
+            Username and password are set and checked here
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Services.CharactersService">
+            <summary>
+            A Service containing CRUD methods and other utilities related to
+            Character objects, used for both the API and Front End
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.#ctor(Microsoft.Extensions.Options.IOptions{ApexDataApi.Models.ApexPlayerDatabaseSettings})">
+            <summary>
+            MongoDB connection
+            </summary>
+            <param name="apexPlayerDatabaseSettings"></param>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.GetAsync(System.String)">
+            <summary>
+            Finds a single character using the CharacterName variable
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.GetAsyncId(System.String)">
+            <summary>
+            Finds a single character by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.CalculatePlaytimeAsync(ApexDataApi.Models.Character)">
+            <summary>
+            Loops through a list of all players searching for a specific character
+            Sums the playtime of that character across all players, updates playtime variable
+            </summary>
+            <param name="character"></param>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.GetCharacterList">
+            <summary>
+            Returns a list of all characters, calculating playtime across all players. 
+            List is unsorted
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.GetCharacterListRanked">
+            <summary>
+            Returns a list of all characters with playtime across all players. 
+            List is sorted in order of playtime descending
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.CreateAsync(ApexDataApi.Models.Character)">
+            <summary>
+            Creates a new character and adds it to the database. Used for the front end
+            </summary>
+            <param name="newCharacter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.CreateListAsync(System.String,System.String)">
+            <summary>
+            Creates two new characters and adds them to the database. Used for the API
+            </summary>
+            <param name="name1"></param>
+            <param name="name2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.UpdateCharacterAsync(ApexDataApi.Models.Character)">
+            <summary>
+            Updates a single character. Used for the front end
+            </summary>
+            <param name="updatedCharacter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.RemoveAsync(System.String)">
+            <summary>
+            Deletes a single character by name, used for the API
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.CharactersService.RemoveAsync(ApexDataApi.Models.Character)">
+            <summary>
+            Deletes a single character, used for the front end
+            </summary>
+            <param name="character"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApexDataApi.Services.PlayersService">
+            <summary>
+            A Service containing CRUD methods and other utilities related to
+            Player objects, used for both the API and Front End
+            </summary>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.#ctor(Microsoft.Extensions.Options.IOptions{ApexDataApi.Models.ApexPlayerDatabaseSettings})">
+            <summary>
+            MongoDB connection
+            </summary>
+            <param name="apexPlayerDatabaseSettings"></param>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetAsync">
+            <summary>
+            Returns a list of all players
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetRankedListAsync">
+            <summary>
+            Returns a list of all players, ordered by Rank ascending
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetAsyncId(System.String)">
+            <summary>
+            Finds a single player by ID, returns the Player object
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetAsync(System.String)">
+            <summary>
+            Finds a single player by PlayerName, returns the Player object
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.GetRank(System.Int32)">
+            <summary>
+            Returns the Rank of a single player
+            </summary>
+            <param name="rank"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.CreateAsync(ApexDataApi.Models.Player)">
+            <summary>
+            A method to create a player, used for the front end
+            </summary>
+            <param name="newPlayer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.CreateAsync(System.String,System.Int32,System.String)">
+            <summary>
+            A simple method to create a player, used for the API
+            Only name, rank and avatar are set, character details are left null for simplicity
+            </summary>
+            <param name="name"></param>
+            <param name="rank"></param>
+            <param name="avatar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.UpdatePlayerAsync(ApexDataApi.Models.Player)">
+            <summary>
+            A method to update a player's details, used for the front end
+            </summary>
+            <param name="updatedPlayer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.UpdateRankAsync(ApexDataApi.Models.Player,System.Int32)">
+            <summary>
+            A method to update a single player's rank, used for the API
+            The entire list of player's ranks are updated as necessary to compensate
+            </summary>
+            <param name="player"></param>
+            <param name="newRank"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.UpdateMultipleRanksAsync(ApexDataApi.Models.Player,System.Int32,ApexDataApi.Models.Player,System.Int32)">
+            <summary>
+            A method to update two player's ranks at once, used for the API
+            </summary>
+            <param name="player1"></param>
+            <param name="newrank1"></param>
+            <param name="player2"></param>
+            <param name="newrank2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.RemoveAsync(System.String)">
+            <summary>
+            A method to remove a player by PlayerName variable, used for the API
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ApexDataApi.Services.PlayersService.RemoveAsync(ApexDataApi.Models.Player)">
+            <summary>
+            A method to remove a player, used for the front end
+            </summary>
+            <param name="player"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

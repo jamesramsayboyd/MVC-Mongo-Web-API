@@ -1,0 +1,24 @@
+﻿@model ApexDataApi.Models.Character
+
+@{
+    ViewData["Title"] = "Delete";
+}
+    <h1>Delete</h1>
+    <div>
+        <div class="avatarlarge">
+            <img src="@Url.Content("~/Content/Images/characters/" + Model.Image)" />
+        </div>
+        <h1>@Html.DisplayFor(model => model.CharacterName)</h1>
+        <hr />
+        <h3>Are you sure you want to delete this character?</h3>
+        <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        @*<a asp-action="IndexAdmin">Back to List</a>*@
+    </form>
+</div>
+
+<div>
+    <br />
+    <a asp-action="IndexAdmin">Back to List</a>
+</div>

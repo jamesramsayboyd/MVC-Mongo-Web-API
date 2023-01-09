@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>APEX LEGENDS STATS</h1>
+
+<table class="table">
+    <thead>
+        <tr>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <h3>
+                <a asp-controller="Players" asp-action="Index">Player Leaderboard</a><br />
+                <a asp-controller="Players" asp-action="IndexAdmin">Players (Admin)</a><br />
+            </h3>
+        </tr>
+        <tr>
+            <h3>
+                <a asp-controller="Characters" asp-action="Index">Character Leaderboard</a><br />
+                <a asp-controller="Characters" asp-action="IndexAdmin">Characters (Admin)</a><br />
+            </h3>
+        </tr>
+    </tbody>
+</table>
+<h3>
+    <a href="https://localhost:44381/swagger/index.html">Swagger API (admin/admin)</a>
+</h3>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ApexDataApi.Models.Player>
+
+@{
+    ViewData["Title"] = "Players";
+}
+
+<h1>Apex Ranked Leaderboard</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                Rank
+            </th>
+            <th>
+                Avatar
+            </th>
+            <th>
+                Player
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Topranked)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @if (item.Rank == 1)
+                {
+                    <img src="@Url.Content("~/Content/Images/topranked.png")" alt="Top Ranked" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                <div class="avatarsmall">
+                        <img src="@Url.Content("~/Content/Images/players/" + @item.Avatar)" alt="@item.PlayerName Avatar" />
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerName)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <p>
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+    </p>
+</div>

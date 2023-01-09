@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "O+KFbTumfzFgomova1K1Q25oQiMDX9XPCvK29h9uzzw=",
+  "Source": "ApexDataApi",
+  "BasePath": "_content/ApexDataApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ApexDataApi\\wwwroot",
+      "Source": "ApexDataApi",
+      "ContentRoot": "C:\\Users\\James\\Documents\\GitHub\\Non-Relational-Databases-AT2\\ApexDataApi\\ApexDataApi\\wwwroot\\",
+      "BasePath": "_content/ApexDataApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

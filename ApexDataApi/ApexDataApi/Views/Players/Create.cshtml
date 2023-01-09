@@ -1,0 +1,93 @@
+﻿@model ApexDataApi.Models.Player
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Player</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlayerName" class="control-label">Name: </label>
+                <input asp-for="PlayerName" class="form-control" />
+                <span asp-validation-for="PlayerName" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Rank" class="control-label">Rank: </label>
+                <input asp-for="Rank" class="form-control" />
+                <span asp-validation-for="Rank" class="text-danger"></span>
+            </div><br />
+            @*<div class="form-group">
+                <label asp-for="Avatar" class="control-label">Avatar: </label>
+                <input type="file" asp-for="Avatar" class="form-control" />
+                <span asp-validation-for="Avatar" class="text-danger"></span>
+            </div><br />*@
+            <div class="form-group">
+                <label asp-for="Avatar" class="control-label">Avatar: </label>
+                <select asp-for ="Avatar" class="form-control">
+                    <option value="">Choose</option>
+                    <option value="default.png">Default</option>
+                </select>
+                <span asp-validation-for="Avatar" class="text-danger"></span>
+            </div><br />
+            @*<div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Topranked" /> @Html.DisplayNameFor(model => model.Topranked)
+                </label>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="Character1" class="control-label"></label>
+                <input asp-for="Character1" class="form-control" />
+                <span asp-validation-for="Character1" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Character1" class="control-label">#1 Most Played Character: </label>
+                <select asp-for ="Character1" class="form-control">
+                    @foreach(var character in ViewBag.CharacterNames)
+                    {
+                        <option value="@character.Id">@character.CharacterName</option>
+                    }
+                </select>
+                <span asp-validation-for="Character1" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Character1Playtime" class="control-label">Playtime: </label>
+                <input asp-for="Character1Playtime" class="form-control" min="0" />
+                <span asp-validation-for="Character1Playtime" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Character2" class="control-label">#2 Most Played Character: </label>
+                <select asp-for="Character2" class="form-control">
+                    @foreach (var character in ViewBag.CharacterNames)
+                    {
+                            <option value="@character.Id">@character.CharacterName</option>
+                    }
+                </select>
+                <span asp-validation-for="Character2" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="Character2Playtime" class="control-label">Playtime: </label>
+                <input asp-for="Character2Playtime" class="form-control" min="0" />
+                <span asp-validation-for="Character2Playtime" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <p>
+        <a asp-action="IndexAdmin">Back to List</a>
+    </p>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
